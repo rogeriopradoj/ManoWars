@@ -1,0 +1,28 @@
+{
+    "name": "rogeriopradoj/mano-wars",
+    "description": "Fork of augustohp/mano-wars",
+    "authors": [
+        {
+            "name": "Augusto Pascutti",
+            "email": "augusto@phpsp.org.br"
+        },
+        {
+            "name": "Rafael Dohms",
+            "email": "rdohms@phpsp.org.br"
+        },
+        {
+            "name": "Rogerio Prado de Jesus",
+            "email": "rogeriopradoj@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">5.3"
+    },
+    "require-dev": {
+        "ext-xdebug": "*",
+        "phpunit/phpunit": "*",
+        "phing/phing": "*",
+        "pdepend/pdepend": "*",
+        "squizlabs/php_codesniffer": "*"
+    }
+}
