@@ -25,6 +25,7 @@ Divirtam-se!
 - [PHP 5.3+](http://php.net/)
 - [Composer](http://getcomposer.org/) (que irá gerenciar as dependências e cuidar do autoload. Veja o [composer.json](https://github.com/rogeriopradoj/ManoWars/blob/master/composer.json) para a lista completa)
 - [Xdebug](http://xdebug.org/) (é usado para geração de relatórios no build)
+- [Git](http://git-scm.com/) (é usado para geração de relatórios no build)
 
 ## Instalação
 
@@ -58,9 +59,9 @@ Pronto, a aplicação já deve ser acessível (no exemplo acima pelo endereço [
 
 ## Execuções das demais ferramentas
 
-### PHING
+Todos os comandos abaixo são executados na raiz do projeto, onde tem o arquivo "build.xml":
 
-Na raiz do projeto, onde se encontra o arquivo "build.xml":
+### PHING
 
 ```bash
 $ vendor/bin/phing
@@ -68,15 +69,11 @@ $ vendor/bin/phing
 
 ### PHPUnit
 
-Na raiz do projeto, onde se encontra o arquivo "phpunit.xml.dist":
-
 ```bash
 $ vendor/bin/phpunit
 ```
 
 ### PHP_Depend
-
-Na raiz do projeto:
 
 ```bash
 $ vendor/bin/pdepend libs/MW
@@ -84,8 +81,12 @@ $ vendor/bin/pdepend libs/MW
 
 ### PHPCPD
 
-Na raiz do projeto:
-
 ```bash
 $ vendor/bin/phpcpd libs/MW
+```
+
+### PHP Code Sniffer
+
+```bash
+$ vendor/bin/phpcs --standard=Zend --report-summary init.php libs/MW
 ```

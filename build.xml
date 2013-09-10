@@ -104,7 +104,11 @@
     <!-- ================ -->
     <target name="metrics">
         <echo msg="Running metrics tools ..." />
+        <echo msg="# PHPCPD ..." />
         <exec command="vendor/bin/phpcpd --log-pmd ${dir-logs}/cpd.xml ${dir-app}" logoutput="true" escape="false" />
+        <echo msg="# PDepend ..." />
         <exec command="vendor/bin/pdepend -d memory_limit=1G --jdepend-xml=${dir-logs}/jdepend.xml --summary-xml=${dir-logs}/jdepend-summary.xml --jdepend-chart=${dir-logs}/jdepend.svg --overview-pyramid=${dir-logs}/jdepend-pyramid.svg ${dir-app}" logoutput="true" escape="false" />
+        <echo msg="# PHP Code Sniffer ..." />
+        <exec command="vendor/bin/phpcs --standard=Zend -p -s --report-full=${dir-tests-logs}/codesniffer-full.txt --report-summary=${dir-tests-logs}/codesniffer-summary.txt --report-xml=${dir-tests-logs}/codesniffer.xml --report-checkstyle=${dir-tests-logs}/codesniffer-checkstyle.xml --report-gitblame=${dir-tests-logs}/codesniffer-gitblame.txt init.php ${dir-app}" logoutput="true" escape="false" />
     </target>
 </project>
