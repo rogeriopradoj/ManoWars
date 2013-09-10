@@ -78,29 +78,35 @@ $ vendor/bin/phpunit
 ### PHP_Depend
 
 ```bash
-$ vendor/bin/pdepend libs/MW
+$ vendor/bin/pdepend libs
 ```
 
 ### PHPCPD
 
 ```bash
-$ vendor/bin/phpcpd libs/MW
+$ vendor/bin/phpcpd libs
 ```
 
 ### PHP Code Sniffer
 
 ```bash
-$ vendor/bin/phpcs --standard=Zend --report-summary init.php libs/MW
+$ vendor/bin/phpcs --standard=Zend --report-summary init.php libs
 ```
 
 ### PHP Mess Detector
 
 ```bash
-$ vendor/bin/phpmd libs/MW text cleancode,codesize,controversial,design,naming,unusedcode
+$ vendor/bin/phpmd libs text cleancode,codesize,controversial,design,naming,unusedcode
 ```
 
 ### PHP Documentator
 
 ```bash
 $ vendor/bin/phpdoc.php --progressbar --sourcecode
+```
+
+### PHP Loc
+
+```bash
+$ vendor/bin/phploc --progress libs tests init.php
 ```

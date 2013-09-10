@@ -26,7 +26,8 @@
         "sebastian/phpcpd": "*",
         "squizlabs/php_codesniffer": "*",
         "phpmd/phpmd": "*",
-        "phpdocumentor/phpdocumentor": "*"
+        "phpdocumentor/phpdocumentor": "*",
+        "phploc/phploc": "*"
     },
     "autoload": {
         "psr-0": {

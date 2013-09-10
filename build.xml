@@ -4,7 +4,7 @@
     <property name="dir-tests" value="./tests" />
     <property name="dir-tests-logs" value="./tests/_reports" />
     <property name="dir-logs" value="./build/logs" />
-    <property name="dir-app" value="./libs/MW" />
+    <property name="dir-app" value="./libs" />
     
     <!-- ======================== -->
     <!-- = (Default) Build Task = -->
@@ -101,16 +101,20 @@
         <echo msg="Running metrics tools ..." />
         
         <echo msg="# PHPCPD ..." />
-        <exec command="vendor/bin/phpcpd --log-pmd ${dir-logs}/cpd.xml ${dir-app}" logoutput="true" escape="false" />
+        <exec command="vendor/bin/phpcpd --log-pmd ${dir-tests-logs}/cpd.xml ${dir-app}" logoutput="true" escape="false" />
         
         <echo msg="# PDepend ..." />
-        <exec command="vendor/bin/pdepend -d memory_limit=1G --jdepend-xml=${dir-logs}/jdepend.xml --summary-xml=${dir-logs}/jdepend-summary.xml --jdepend-chart=${dir-logs}/jdepend.svg --overview-pyramid=${dir-logs}/jdepend-pyramid.svg ${dir-app}" logoutput="true" escape="false" />
+        <exec command="vendor/bin/pdepend -d memory_limit=1G --jdepend-xml=${dir-tests-logs}/jdepend.xml --summary-xml=${dir-tests-logs}/jdepend-summary.xml --jdepend-chart=${dir-tests-logs}/jdepend.svg --overview-pyramid=${dir-tests-logs}/jdepend-pyramid.svg ${dir-app}" logoutput="true" escape="false" />
         
         <echo msg="# PHP Code Sniffer ..." />
         <exec command="vendor/bin/phpcs --standard=Zend -p -s --report-full=${dir-tests-logs}/codesniffer-full.txt --report-summary=${dir-tests-logs}/codesniffer-summary.txt --report-xml=${dir-tests-logs}/codesniffer.xml --report-checkstyle=${dir-tests-logs}/codesniffer-checkstyle.xml --report-gitblame=${dir-tests-logs}/codesniffer-gitblame.txt init.php ${dir-app}" logoutput="true" escape="false" />
         
         <echo msg="# PHP Mess Detector ..." />
         <exec command="vendor/bin/phpmd ${dir-app} text cleancode,codesize,controversial,design,naming,unusedcode --reportfile ${dir-tests-logs}/phpmd.txt" logoutput="true" escape="false" />
+
+        <echo msg="# PHP Loc ..." />
+        <exec command="vendor/bin/phploc --progress --log-xml=${dir-tests-logs}/phploc.xml ${dir-app} ${dir-tests} init.php" logoutput="true" escape="false" />
+
     </target>
 
     <!-- ================== -->
