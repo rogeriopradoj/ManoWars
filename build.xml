@@ -39,7 +39,7 @@
     <!-- ========== -->
     <target name="composer">
         <echo msg="Running composer install ..." />
-        <exec dir="." command="composer install" logoutput="true" escape="false" />
+        <exec command="composer install" logoutput="true" escape="false" />
     </target>
     
     <!-- ========== -->
@@ -91,7 +91,7 @@
     <!-- ================ -->
     <target name="phpunit">
         <echo msg="Running unit tests in ${dir-tests} ..." />
-        <exec dir="." command="phpunit" logoutput="true" escape="false" />
+        <exec command="vendor/bin/phpunit" logoutput="true" escape="false" />
         <copy todir="${dir-logs}">
         	<fileset dir="${dir-tests-logs}">
         	    <include name="**" />
@@ -104,7 +104,7 @@
     <!-- ================ -->
     <target name="metrics">
         <echo msg="Running metrics tools ..." />
-        <exec command="phpcpd --log-pmd ${dir-logs}/cpd.xml ${dir-app}" />
-        <exec command="pdepend -d memory_limit=1G --jdepend-xml=${dir-logs}/jdepend.xml --summary-xml=${dir-logs}/jdepend-summary.xml --jdepend-chart=${dir-logs}/jdepend.svg --overview-pyramid=${dir-logs}/jdepend-pyramid.svg ${dir-app}" escape="false" />
+        <exec command="vendor/bin/phpcpd --log-pmd ${dir-logs}/cpd.xml ${dir-app}" logoutput="true" escape="false" />
+        <exec command="vendor/bin/pdepend -d memory_limit=1G --jdepend-xml=${dir-logs}/jdepend.xml --summary-xml=${dir-logs}/jdepend-summary.xml --jdepend-chart=${dir-logs}/jdepend.svg --overview-pyramid=${dir-logs}/jdepend-pyramid.svg ${dir-app}" logoutput="true" escape="false" />
     </target>
 </project>
