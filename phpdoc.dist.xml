@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdoc>
+  <title><![CDATA[ManoWars API Doc]]></title>
+  <parser>
+    <target>build/docs</target>
+    <sourcecode />
+    <progressbar />
+  </parser>
+  <transformer>
+    <target>build/docs</target>
+  </transformer>
+  <files>
+    <directory>libs/MW</directory>
+  </files>
+  <logging>
+    <paths>
+        <default>tests/_reports/phpdoc-{DATE}.log</default>
+        <errors>tests/_reports/phpdoc-{DATE}.errors.log</errors>
+    </paths>
+  </logging>
+</phpdoc>

@@ -13,10 +13,11 @@
         <phingcall target="clean"></phingcall>
         <phingcall target="structure"></phingcall>
         <phingcall target="composer"></phingcall>
-        <phingcall target="makedist"></phingcall>
         <phingcall target="phpunit"></phingcall>
         <phingcall target="metrics"></phingcall>
-        <!-- <phingcall target="phpdoc"></phingcall> -->
+        <phingcall target="phpdoc"></phingcall>
+        <phingcall target="copylogs"></phingcall>
+        <phingcall target="makedist"></phingcall>
     </target>
     
     <!-- ============== -->
@@ -46,12 +47,10 @@
     <!-- = PHPDoc = -->
     <!-- ========== -->
     <target name="phpdoc">
-        <phpdoc2 title="API Documentation"
-          destdir="${dir-build}/docs">
-           <fileset dir="${dir-app}">
-                <include name="**/*.php" />
-            </fileset>
-        </phpdoc2>
+        <echo msg="Generating API docs ..." />
+        <exec
+            command="vendor/bin/phpdoc.php --progressbar --sourcecode"
+            logoutput="true" escape="false" />
     </target>
     
     <!-- ========================== -->
@@ -65,6 +64,7 @@
                 <exclude name="tests/**" />
                 <exclude name="composer**" />
                 <exclude name="phpunit**" />
+                <exclude name="phpdoc**" />
                 <include name="**" />
             </fileset>
         </copy>
@@ -92,11 +92,6 @@
     <target name="phpunit">
         <echo msg="Running unit tests in ${dir-tests} ..." />
         <exec command="vendor/bin/phpunit" logoutput="true" escape="false" />
-        <copy todir="${dir-logs}">
-        	<fileset dir="${dir-tests-logs}">
-        	    <include name="**" />
-        	</fileset>
-        </copy>
     </target>
     
     <!-- ================ -->
@@ -116,5 +111,17 @@
         
         <echo msg="# PHP Mess Detector ..." />
         <exec command="vendor/bin/phpmd ${dir-app} text cleancode,codesize,controversial,design,naming,unusedcode --reportfile ${dir-tests-logs}/phpmd.txt" logoutput="true" escape="false" />
+    </target>
+
+    <!-- ================== -->
+    <!-- = Log files copy = -->
+    <!-- ================== -->
+    <target name="copylogs">
+        <echo msg="Copying logs to build dir ..." />
+        <copy todir="${dir-logs}">
+            <fileset dir="${dir-tests-logs}">
+                <include name="**" />
+            </fileset>
+        </copy>
     </target>
 </project>

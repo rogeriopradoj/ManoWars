@@ -25,7 +25,8 @@
         "pdepend/pdepend": "*",
         "sebastian/phpcpd": "*",
         "squizlabs/php_codesniffer": "*",
-        "phpmd/phpmd": "*"
+        "phpmd/phpmd": "*",
+        "phpdocumentor/phpdocumentor": "*"
     },
     "autoload": {
         "psr-0": {

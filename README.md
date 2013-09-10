@@ -96,3 +96,9 @@ $ vendor/bin/phpcs --standard=Zend --report-summary init.php libs/MW
 ```bash
 $ vendor/bin/phpmd libs/MW text cleancode,codesize,controversial,design,naming,unusedcode
 ```
+
+### PHP Documentator
+
+```bash
+$ vendor/bin/phpdoc.php --progressbar --sourcecode
+```
