@@ -24,7 +24,8 @@
         "phing/phing": "*",
         "pdepend/pdepend": "*",
         "sebastian/phpcpd": "*",
-        "squizlabs/php_codesniffer": "*"
+        "squizlabs/php_codesniffer": "*",
+        "phpmd/phpmd": "*"
     },
     "autoload": {
         "psr-0": {

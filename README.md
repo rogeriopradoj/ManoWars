@@ -90,3 +90,9 @@ $ vendor/bin/phpcpd libs/MW
 ```bash
 $ vendor/bin/phpcs --standard=Zend --report-summary init.php libs/MW
 ```
+
+### PHP Mess Detector
+
+```bash
+$ vendor/bin/phpmd libs/MW text cleancode,codesize,controversial,design,naming,unusedcode
+```
