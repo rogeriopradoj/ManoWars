@@ -52,7 +52,7 @@ class MW_PowerupsTest extends PHPUnit_Framework_TestCase
     public function testPowerupInstance($class)
     {
         $o = new $class();
-        $this->assertType('MW_Powerup_Interface',$o);
+        $this->assertInstanceOf('MW_Powerup_Interface',$o);
     }
     
     /**
@@ -65,8 +65,8 @@ class MW_PowerupsTest extends PHPUnit_Framework_TestCase
     public function testPowerupGetters($class)
     {
         $o = new $class();
-        $this->assertType('int',$o->getHealthChange());
-        $this->assertType('int',$o->getAttackChange());
-        $this->assertType('int',$o->getDefenceChange());
+        $this->assertInternalType('int',$o->getHealthChange());
+        $this->assertInternalType('int',$o->getAttackChange());
+        $this->assertInternalType('int',$o->getDefenceChange());
     }
 }
