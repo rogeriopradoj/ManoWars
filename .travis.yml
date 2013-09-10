@@ -1,0 +1,18 @@
+language: php
+
+env:
+    - RUN=phpunit
+    - RUN=vendor/bin/phpunit
+    - RUN=vendor/bin/phing
+
+script: phpunit
+
+php:
+    - 5.3
+    - 5.4
+    - 5.5
+
+before_script:
+    - "composer selfupdate"
+    - "composer --version"
+    - "composer install --verbose"

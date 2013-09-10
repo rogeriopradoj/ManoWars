@@ -1,6 +1,8 @@
 # Mano Wars
 
-- *Author*: Rafael Dohms - rdohms @ phpsp .org . br
+[![Build Status](https://travis-ci.org/rogeriopradoj/ManoWars.png?branch=master)](https://travis-ci.org/rogeriopradoj/ManoWars)
+
+master *Author*: Rafael Dohms - rdohms @ phpsp .org . br
 - *Author*: Augusto Pascutti - augusto @ phpsp . org . br
 - *Author*: Rogerio Prado de Jesus - rogeriopradoj @ gmail . com
 
