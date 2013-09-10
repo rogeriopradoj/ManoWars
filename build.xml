@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <project name="ManoWars" basedir="." default="build">
     <property name="dir-build" value="./build" />
-    <property name="dir-tests" value="./ManoWars/tests" />
-    <property name="dir-tests-logs" value="./ManoWars/tests/_reports" />
+    <property name="dir-tests" value="./tests" />
+    <property name="dir-tests-logs" value="./tests/_reports" />
     <property name="dir-logs" value="./build/logs" />
+    <property name="dir-app" value="./libs/MW" />
     
     <!-- ======================== -->
     <!-- = (Default) Build Task = -->
@@ -15,7 +16,7 @@
         <phingcall target="makedist"></phingcall>
         <phingcall target="phpunit"></phingcall>
         <phingcall target="metrics"></phingcall>
-        <phingcall target="phpdoc"></phingcall>
+        <!-- <phingcall target="phpdoc"></phingcall> -->
     </target>
     
     <!-- ============== -->
@@ -36,15 +37,12 @@
     <!-- = PHPDoc = -->
     <!-- ========== -->
     <target name="phpdoc">
-        <phpdoc title="ManoWars API Doc" sourcecode="yes" destdir="${dir-build}/docs" output="HTML:Smarty:PHP">            
-            <fileset dir="./ManoWars/libs/MW">
+        <phpdoc2 title="API Documentation"
+          destdir="${dir-build}/docs">
+           <fileset dir="${dir-app}">
                 <include name="**/*.php" />
-            </fileset>        
-            <projdocfileset dir=".">
-                <include name="README"/>
-                <include name="INSTALL"/>
-            </projdocfileset>
-        </phpdoc>
+            </fileset>
+        </phpdoc2>
     </target>
     
     <!-- ========================== -->
@@ -53,7 +51,11 @@
     <target name="makedist">
         <echo msg="Moving files to distribution directory ..." />
         <copy todir="${dir-build}/dist/">
-            <fileset dir="./ManoWars">
+            <fileset dir=".">
+                <exclude name="build/**" />
+                <exclude name="tests/**" />
+                <exclude name="composer**" />
+                <exclude name="phpunit**" />
                 <include name="**" />
             </fileset>
         </copy>
@@ -80,7 +82,7 @@
     <!-- ================ -->
     <target name="phpunit">
         <echo msg="Running unit tests in ${dir-tests} ..." />
-        <exec dir="${dir-tests}" command="phpunit AllTests.php" logoutput="true" escape="false" />
+        <exec dir="." command="phpunit" logoutput="true" escape="false" />
         <copy todir="${dir-logs}">
         	<fileset dir="${dir-tests-logs}">
         	    <include name="**" />
@@ -93,7 +95,7 @@
     <!-- ================ -->
     <target name="metrics">
         <echo msg="Running metrics tools ..." />
-        <exec command="phpcpd --exclude ${dir-tests} --log-pmd ${dir-logs}/cpd.xml ." />
-        <exec command="pdepend -d memory_limit=1G --jdepend-xml=${dir-logs}/jdepend.xml ." escape="false" />
+        <exec command="phpcpd --log-pmd ${dir-logs}/cpd.xml ${dir-app}" />
+        <exec command="pdepend -d memory_limit=1G --jdepend-xml=${dir-logs}/jdepend.xml --summary-xml=${dir-logs}/jdepend-summary.xml --jdepend-chart=${dir-logs}/jdepend.svg --overview-pyramid=${dir-logs}/jdepend-pyramid.svg ${dir-app}" escape="false" />
     </target>
 </project>
