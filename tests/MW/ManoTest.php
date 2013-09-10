@@ -37,8 +37,8 @@ class MW_ManoTest extends PHPUnit_Framework_TestCase
         $this->MW_Mano = new MW_Mano($name);
         
         $this->assertInstanceOf('MW_Mano', $this->MW_Mano);
-        $this->assertNull($this->MW_Mano->getAtk());
-        $this->assertNull($this->MW_Mano->getDef());
+        $this->assertEquals(0, $this->MW_Mano->getAtk());
+        $this->assertEquals(0, $this->MW_Mano->getDef());
         $this->assertEquals($name, $this->MW_Mano->getName());
     }
 
