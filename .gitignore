@@ -5,3 +5,4 @@ tests/_reports/*
 build/*
 .DS_Store
 /vendor/
+scrutinizer.phar

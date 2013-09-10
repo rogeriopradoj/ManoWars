@@ -1,0 +1,32 @@
+filter:
+    excluded_paths: [vendor/*, public/*]
+    paths: [init.php, libs/*, tests/*]
+
+before_commands:
+    - "composer install --prefer-source"
+
+tools:
+    php_cpd:
+        excluded_dirs: [vendor/*, public/*]
+        names:
+            - init.php
+            - libs/*
+            - tests/*
+    php_code_coverage: true
+    php_pdepend:
+        excluded_dirs: [vendor/*, public/*]
+    php_code_sniffer:
+        config:
+            standard: Zend
+    php_loc:
+        excluded_dirs: [vendor/*, public/*]
+    php_mess_detector:
+        config:
+            rulesets:
+                - cleancode
+                - codesize
+                - controversial
+                - design
+                - naming
+                - unusedcode
+    php_analyzer: true
