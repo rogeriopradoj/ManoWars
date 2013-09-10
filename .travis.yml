@@ -5,7 +5,7 @@ env:
     - RUN=vendor/bin/phpunit
     - RUN=vendor/bin/phing
 
-script: phpunit
+script: ${RUN}
 
 php:
     - 5.3
