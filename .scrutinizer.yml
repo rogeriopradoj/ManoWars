@@ -19,6 +19,7 @@ tools:
         config:
             standard: Zend
     php_loc:
+        enabled: false
         excluded_dirs: [vendor/*, public/*]
     php_mess_detector:
         config:
