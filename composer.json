@@ -16,8 +16,7 @@
         }
     ],
     "require": {
-        "php": ">5.3",
-        "zendframework/zendframework1": "*"
+        "php": ">5.3"
     },
     "require-dev": {
         "ext-xdebug": "*",
