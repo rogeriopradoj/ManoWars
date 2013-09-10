@@ -23,6 +23,7 @@
         "phpunit/phpunit": "*",
         "phing/phing": "*",
         "pdepend/pdepend": "*",
+        "sebastian/phpcpd": "*",
         "squizlabs/php_codesniffer": "*"
     },
     "autoload": {
