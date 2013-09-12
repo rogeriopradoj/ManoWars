@@ -15,4 +15,4 @@ php:
 before_script:
     - "composer selfupdate"
     - "composer --version"
-    - "composer install --verbose"
+    - "composer install --prefer-dist --verbose"
