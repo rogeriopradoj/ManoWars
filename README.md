@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/rogeriopradoj/ManoWars.png?branch=master)](https://travis-ci.org/rogeriopradoj/ManoWars) [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/rogeriopradoj/ManoWars/badges/quality-score.png?s=f1b7894e3ada78b8ea81da9f790ea7e3b89f8779)](https://scrutinizer-ci.com/g/rogeriopradoj/ManoWars/) [![Code Coverage](https://scrutinizer-ci.com/g/rogeriopradoj/ManoWars/badges/coverage.png?s=ee15ca0f9e783a480f056ff32247a044477b00d6)](https://scrutinizer-ci.com/g/rogeriopradoj/ManoWars/)
 
+[![Stories in Ready](https://badge.waffle.io/rogeriopradoj/ManoWars.png?label=ready)](https://waffle.io/rogeriopradoj/ManoWars)
+
 - *Author*: Rafael Dohms - rdohms @ phpsp .org . br
 - *Author*: Augusto Pascutti - augusto @ phpsp . org . br
 - *Author*: Rogerio Prado de Jesus - rogeriopradoj @ gmail . com
