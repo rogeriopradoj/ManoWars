@@ -112,3 +112,7 @@ $ vendor/bin/phpdoc.php --progressbar --sourcecode
 ```bash
 $ vendor/bin/phploc --progress libs tests init.php
 ```
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/rogeriopradoj/manowars/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
