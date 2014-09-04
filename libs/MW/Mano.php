@@ -146,7 +146,7 @@ class MW_Mano
     }
     /**
      * Changes the attack.
-     * This method sums the current defence with the given integer.
+     * This method sums the current attack with the given integer.
      *
      * @param int $num 
      * @return void
